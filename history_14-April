@@ -1,0 +1,833 @@
+   21  clear
+   22  lab-configure
+   23  lab s2i-scripts start
+   24  git clone https://github.com/sunilkmasl/DO280-apps.git
+   25  lab s2i-scripts start
+   26  ls -l
+   27   git config --global credential.helper cache
+   28  git clone https://github.com/sunilkmasl/DO180-apps.git
+   29  ls -l
+   30  lab s2i-scripts start
+   31  pwd
+   32  lab configure
+   33  lab-configure
+   34  cat /usr/local/etc/ocp4.config 
+   35  oc login -u wppcqn -p bb5184d5d507477ea31f https://api.ap46a.prod.ole.redhat.com:6443
+   36  oc whoami
+   37  lab s2i-scripts start
+   38  cd DO180-apps/
+   39  git status
+   40  git checkout -b testbranch
+   41  git branch
+   42  echo "DO180" > TEST
+   43  git add .
+   44  git commit -am "DO180"
+   45  git push --set-upstream origin testbranch
+   46  git commit -am "DO180"
+   47  git push --set-upstream origin testbranch
+   48  cd
+   49  ls -l
+   50  rm -rf DO180-apps/
+   51  history | grep -i DO180
+   52  ls -l
+   53  git clone https://github.com/sunilkmasl/DO180-apps.git
+   54  ls -l
+   55  cd DO180-apps/
+   56  git checkout -b testbranch
+   57  git branch
+   58  echo "DO180" > TEST
+   59  git add .
+   60  git commit -am "DO180"
+   61  git push --set-upstream origin testbranch
+   62  cd
+   63   git config --global credential.helper cache
+   64  cd DO180-apps/
+   65  echo "OCP4.6" > TEST
+   66  git add .
+   67  git branch
+   68  git commit -am "OCP4.6"
+   69  git push
+   70  git push --set-upstream origin testbranch
+   71  cd
+   72  vim Token
+   73  cat Token 
+   74  clear
+   75   lab container-create start
+   76   lab container-create finish
+   77  clear
+   78  lab s2i-scripts start
+   79  source /usr/local/etc/ocp4.config
+   80  oc login -u ${RHT_OCP4_DEV_USER} 
+   81  clear
+   82  oc login -u ${RHT_OCP4_DEV_USER} -p ${RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+   83  oc get pod
+   84  clear
+   85  lab apache-s2i start
+   86  lab-configure
+   87  lab apache-s2i start
+   88  ls
+   89  ls -l
+   90  git clone https://github.com/sunilkmasl/DO288-apps.git
+   91  lab apache-s2i start
+   92  s2i version
+   93  which s2i
+   94  s2i create -h
+   95  s2i create s2i-demo-httpd s2i-demo-httpd
+   96  ls -l
+   97  cd s2i-demo-httpd/
+   98  ls -l
+   99  mv Dockerfile Containerfile
+  100  ls -l
+  101  cat Containerfile 
+  102  ls -l
+  103  cat Containerfile 
+  104  ls -l
+  105  podman search ubi-8
+  106  vim Containerfile 
+  107  cat Containerfile
+  108  cat Containerfile |less
+  109  vim  Containerfile
+  110  cat Containerfile |less
+  111  vim  Containerfile
+  112  cat Containerfile 
+  113  cat Containerfile |less
+  114  vim  Containerfile
+  115  cat Containerfile 
+  116  ls -l
+  117  vim s2i/bin/assemble 
+  118  cat Containerfile 
+  119  cat  s2i/bin/assemble 
+  120  DATE=$(date +%y -%m-%d)
+  121  DATE=$(date +%y-%m-%d)
+  122  echo $DATE
+  123  DATE=$(date +%y-%m-%d)
+  124  vim  s2i/bin/assemble 
+  125  cat s2i/bin/assemble 
+  126  vim  s2i/bin/assemble 
+  127  vim s2i/bin/run 
+  128   s2i/bin/usage 
+  129  ls -l
+  130  cat s2i/bin/save-artifacts 
+  131  rm -rf s2i/bin/save-artifacts 
+  132  ls -l
+  133  podman build -t s2i-demo-httpd .
+  134  ls -l
+  135  cat Containerfile 
+  136  vim Containerfile 
+  137  podman build -t s2i-demo-httpd .
+  138  podman images
+  139  podman run --name=myweb 2fe68d2a7518
+  140  clear
+  141  podman  images
+  142  podman run --name=mywebserver 2fe68d2a7518
+  143  oc whoami
+  144  oc new-project sunil-demo
+  145  oc new-app --name=myweb1 localhost/s2i-demo-httpd:latest
+  146  clear
+  147  cd
+  148  clar
+  149  clear
+  150  podman  images
+  151  podman login quay.io
+  152  podman tag localhost/s2i-demo-httpd quay.io/sunilkumar25/s2i-demo-httpd:1.0
+  153  podman push quay.io/sunilkumar25/s2i-demo-httpd:1.0
+  154  cd s2i-demo-httpd/
+  155  mkdir ~/s2i-sample-app
+  156  ls -l
+  157  tree 
+  158  cat test/test-app/index.html 
+  159  vim  test/test-app/index.html 
+  160  s2i build test/test-app/ s2i-demo-httpd s2i-sample-app --as-dockerfile ~/s2i-sample-app/Containerfile
+  161  tree ~/s2i-sample-app/
+  162  cd ~/s2i-sample-app/
+  163  podman build -t s2i-sample-app .
+  164  vim /usr/libexec/s2i/assemble
+  165  cd ..
+  166  l s-l
+  167  ls -l
+  168  cd s2i-demo-httpd/
+  169  ls -l
+  170  vim s2i/bin/assemble 
+  171  podman images 
+  172  podman build -t s2i-demo-httpd . 
+  173  s2i build test/test-app/ s2i-demo-httpd s2i-sample-app --as-dockerfile ~/s2i-sample-app/Containerfile 
+  174  podman images  
+  175  cd ~/s2i-sample-app/
+  176  vim Containerfile 
+  177  podman  build -t s2i-sample-app . 
+  178  podman images  
+  179  podman run --name test2 -u 1500 -p 8080:8080 -d s2i-sample-app
+  180  podman  run
+  181  clear
+  182  podman ps
+  183  podman images
+  184  podman rmi quay.io/sunilkumar25/s2i-demo-httpd:1.0
+  185  podman rmi quay.io/sunilkumar25/s2i-demo-httpd
+  186  podman rmi 2fe68d2a7518
+  187  clear
+  188  podman images
+  189  podman tag localhost/s2i-sample-app quay.io/sunilkumar25/s2i-sample-app:1.0
+  190  podman push quay.io/sunilkumar25/s2i-sample-app:1.0
+  191  cd
+  192  oc whoami
+  193  oc project
+  194  oc new-app --name=myweb quay.io/sunilkumar25/s2i-sample-app:1.0
+  195  podman images
+  196  podman imges
+  197  clear
+  198  podman images
+  199  #skopeo copy containers-storage:localhost/s2i-demo-httpd docker://quay.io/accountname/s2i-demo-httpd:v1.1 
+  200  skopeo copy containers-storage:localhost/s2i-sample-app docker://quay.io/sunilkumar25/s2i-sample-app:v1.1 
+  201  clear
+  202  oc project
+  203  podman images
+  204  oc new-app --name=webserver --docker-image=quay.io/sunilkumar25/s2i-sample-app:1.0
+  205  # Create the secret which associates the quay credentials 
+  206  # Link the secret to the default service account 
+  207  podman images
+  208  history 
+  209  history >history_s2i
+  210  vim history_s2i 
+  211  clear
+  212  cat history_s2i 
+  213  clear
+  214  oc get pods 
+  215  oc get sc 
+  216  oc set volume -h 
+  217  # oc set volume dc/mymongodbapp --add --name=v1 -t pvc --claim-size=1G --overwrite --claim-mode="ReadWriteOnce" --claim-class=gp2 --claim-name=mypvc 
+  218  # oc get pvc 
+  219  # oc describe dc/mymongodbapp | grep -i volume -C5 
+  220  # oc set volume dc/mymongodbapp --add --name=v1 -t pvc --claim-size=1G --overwrite --claim-mode="ReadWriteOnce" --claim-class=gp2 --claim-name=mypvc --mount-path=/var/lib/mongodb/datadb
+  221  oc get sc 
+  222  oc explain pv.spec.
+  223  oc explain pv.spec.persistentVolumeReclaimPolicy
+  224  clear
+  225  lab s2i-scripts start
+  226  podman images
+  227  clar
+  228  clear
+  229  podman run --name test -it rhscl/httpd-24-rhel7 bash
+  230  clear
+  231  cd DO288-apps/
+  232  git branch
+  233  git checkout main
+  234  cat /home/student/DO288-apps/s2i-scripts/index.html 
+  235  pwd
+  236  cat /home/student/DO288-apps/s2i-scripts/.s2i/bin/assemble 
+  237  cat /home/student/DO288-apps/s2i-scripts/.s2i/bin/run
+  238  source /usr/local/etc/ocp4.config
+  239  oc login -u ${RHT_OCP4_DEV_USER} 
+  240  oc login -u ${RHT_OCP4_DEV_USER} -p ${RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+  241  oc new-project ${RHT_OCP4_DEV_USER}-s2i-scripts
+  242  oc new-app --name bonjour httpd:2.4~https://github.com/${RHT_OCP4_GITHUB_USER}/DO288-apps --context-dir s2i-scripts
+  243  oc get pod
+  244  oc logs -f bc/bonjour
+  245  oc get pods
+  246  oc expose svc bonjour
+  247  oc get route
+  248  curl bonjour-wppcqn-s2i-scripts.apps.ap46a.prod.ole.redhat.com
+  249  oc logs deployment/bonjour
+  250  cd
+  251  oc delete project ${RHT_OCP4_DEV_USER}-s2i-scripts
+  252  podman rm test
+  253  lab s2i-scripts finish
+  254  clear
+  255  oc new-project nodejs
+  256  cat /usr/local/etc/ocp4.config 
+  257  nexus-common.apps.ap46a.prod.ole.redhat.com
+  258  clear
+  259  oc new-app --name=test --build-env npm_config_registry=nexus-common.apps.ap46a.prod.ole.redhat.com/repository/nodejs  https://github.com/sunilkmasl/pastbin.git
+  260  oc logs -f buildconfig/test
+  261  git clone https://github.com/sunilkmasl/pastbin.git
+  262  cd pastbin/
+  263  l s-l
+  264  ls -l
+  265  cat package.json 
+  266  python3 -m json.tool package.json 
+  267  vim package.json 
+  268  python3 -m json.tool package.json 
+  269  vim package.json 
+  270  python3 -m json.tool package.json 
+  271  git add .
+  272  git commit -m "code corrected"
+  273  git push
+  274  oc get bc
+  275  oc start-build test
+  276  oc logs -f bc/test
+  277  cd
+  278  oc new-project demo-2
+  279  oc new-app --name=test2 --docker-image=nginx
+  280  oc get pod
+  281  oc create serviceaccount sunil
+  282  oc adm policy add-scc-to-user anyuid -z sunil
+  283  oc patch dc/demo-app --patch '{"spec":{"template":{"spec":{"serviceAccountName": "sunil"}}}}'
+  284  oc patch dc/demo-2 --patch '{"spec":{"template":{"spec":{"serviceAccountName": "sunil"}}}}'
+  285  oc get dc
+  286  oc get deployment
+  287  oc patch dc/demo-app --patch 
+  288  '{"spec":{"template":{"spec":{"serviceAccountName": "myserviceaccount"}}}}'
+  289  oc adm policy add-scc-to-user anyuid -z myserviceaccount
+  290  oc adm policy add-scc-to-user anyuid -z sunil
+  291  oc project
+  292  oc get project
+  293  oc delete project sunil-demo
+  294  oc delete project nodejs
+  295  oc delete project demo-2
+  296  clear
+  297  oc project
+  298  oc set build-hook --help
+  299  oc set build-hook bc/test --post-commit --command -- "/usr/bin/python3 mailer.py"
+  300  clear
+  301  oc set build-hook --help
+  302  lab manage-builds start
+  303  cd DO288-apps/
+  304  git checkout main
+  305  git branch
+  306  git checkout -b manage-builds
+  307  git branch
+  308  ls -l
+  309  git push -u origin manage-builds
+  310  ls /home/student/DO288-apps/java-serverhost/src/main/java/com/redhat/training/example/javaserverhost/rest/
+  311  cat  /home/student/DO288-apps/java-serverhost/src/main/java/com/redhat/training/example/javaserverhost/rest/ServerHostEndPoint.java 
+  312   source /usr/local/etc/ocp4.config
+  313   oc login -u ${RHT_OCP4_DEV_USER} 
+  314  -p ${RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+  315   oc login -u ${RHT_OCP4_DEV_USER} -p ${RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+  316   oc new-project ${RHT_OCP4_DEV_USER}-manage-builds
+  317   oc new-app --name jhost --build-env MAVEN_MIRROR_URL=http://${RHT_OCP4_NEXUS_SERVER}/repository/java -i redhat-openjdk18-openshift:1.8  https://github.com/${RHT_OCP4_GITHUB_USER}/DO288-apps#manage-builds --context-dir java-serverhost
+  318  oc get bc
+  319  oc logs -f jhost-1-build 
+  320  oc get pod
+  321  oc get route
+  322  oc get svc
+  323  oc expose svc jhost
+  324  oc get route
+  325  curl jhost-wppcqn-manage-builds.apps.ap46a.prod.ole.redhat.com
+  326  oc get bc
+  327  oc get build
+  328  oc get builds
+  329  vim  /home/student/DO288-apps/java-serverhost/src/main/java/com/redhat/training/example/javaserverhost/rest/ServerHostEndPoint.java
+  330   cd java-serverhost
+  331  git commit -a -m "code updated"
+  332  oc get bc
+  333  oc start-build bc/jhost
+  334  oc cancel-build bc/jhost
+  335  oc get build
+  336  oc get bc
+  337  oc get build
+  338  cd ..
+  339  git push
+  340  oc start-build bc/jhost
+  341  oc get build
+  342  oc logs -f build/jhost-3
+  343  oc get pods
+  344  oc get pod
+  345  oc get route
+  346  curl jhost-wppcqn-manage-builds.apps.ap46a.prod.ole.redhat.com
+  347  cd
+  348  lab manage-builds finish
+  349  oc get dc
+  350  oc get deployment
+  351  clear
+  352  lab trigger-builds start
+  353  clear
+  354   source /usr/local/etc/ocp4.config
+  355  oc login -u ${RHT_OCP4_DEV_USER} -p ${RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+  356  oc new-project ${RHT_OCP4_DEV_USER}-trigger-builds
+  357  podman login -u ${RHT_OCP4_QUAY_USER} quay.io
+  358  cd /home/student/DO288/labs/trigger-builds
+  359  ls -l
+  360  skopeo copy oci-archive:php-73-ubi8-original.tar.gz docker://quay.io/${RHT_OCP4_QUAY_USER}/php-73-ubi8:latest
+  361  oc create secret generic quay-registry --from-file .dockerconfigjson=${XDG_RUNTIME_DIR}/containers/auth.json --type kubernetes.io/dockerconfigjson
+  362  oc secrets links builder quay-registry
+  363  oc secrets link builder quay-registry
+  364  oc get is
+  365  oc import-image php --from quay.io/${RHT_OCP4_QUAY_USER}/php-73-ubi8 --confirm
+  366  oc get is
+  367   oc new-app --name trigger php~http://github.com/${RHT_OCP4_GITHUB_USER}/DO288-apps --context-dir trigger-builds
+  368  oc get bc
+  369  oc logs -f bc/trigger
+  370  oc get bc
+  371  oc get pod
+  372  oc describe bc trigger
+  373  oc get pod
+  374  oc get bc
+  375  oc get build
+  376  oc get dc
+  377  oc get deploy
+  378  skopeo copy oci-archive:php-73-ubi8-newer.tar.gz docker://quay.io/${RHT_OCP4_QUAY_USER}/php-73-ubi8:latest
+  379  oc get is
+  380  oc import-image php
+  381  oc get is
+  382  oc get builds
+  383   oc describe build trigger-1
+  384   oc describe build trigger-1 | grep -i cause
+  385  oc get pod
+  386  cd
+  387  lab trigger-builds finish
+  388  clear
+  389  clar
+  390  clear
+  391  oc get route -n openshift-image-registry
+  392  oc project
+  393  oc projects
+  394  clear
+  395  oc new-project sunil-demo
+  396  oc get is
+  397  podman images
+  398  clear
+  399  podman pull quay.io/sunilkumar25/php-73-ubi8
+  400  oc get is
+  401  podman images
+  402  clear
+  403  oc project
+  404  oc get is
+  405  oc import-image myphp --from=quay.io/sunilkumar25/php-73-ubi8 --confirm --insecure
+  406  oc get is
+  407  oc describe is myphp
+  408  oc get is
+  409  oc project
+  410  oc new-app --name=test1 -i myphp
+  411  oc new-app --name=test1 -i myphp:latest
+  412  clear
+  413  oc get is
+  414  oc delete is myphp
+  415  oc get is
+  416  clear
+  417  oc get project
+  418  oc project
+  419  podman search httpd
+  420  podman search httpd --limit 5
+  421  podman pull registry.access.redhat.com/rhscl/httpd-24-rhel7
+  422  podman  images
+  423  podman tags registry.access.redhat.com/rhscl/httpd-24-rhel7 quay.io/sunilkumar25/ubi-httpd-24:1.0
+  424  podman tag registry.access.redhat.com/rhscl/httpd-24-rhel7 quay.io/sunilkumar25/ubi-httpd-24:1.0
+  425  podman search
+  426  podman  images
+  427  podman login quay.io
+  428  podman push quay.io/sunilkumar25/ubi-httpd-24:1.0
+  429  podman run -it --name=test a32ff6dbe174
+  430  clear
+  431  podman run -it --name=test a32ff6dbe174 /bin/bash
+  432  podman ps
+  433  podman ps -a
+  434  podman rm -a -f
+  435  podman ps -a
+  436  clear
+  437  podman run -it --name=test a32ff6dbe174 /bin/bash
+  438  podman ps
+  439  podman stop test
+  440  podman commit test
+  441  ls -l
+  442  podman images
+  443  podman rmi bd2562160528
+  444  podman images
+  445  podman login quay.io
+  446  oc get secret
+  447  clar
+  448  clear
+  449  ls -al
+  450  cat .kube/
+  451  ls -l .kube/
+  452  cat .kube/config 
+  453  cat .kube/config | grep -i XDG
+  454  echo $XDG_RUNTIME_DIR}
+  455  echo $XDG_RUNTIME_DIR
+  456  cat /run/user/1000 
+  457  ls /run/user/1000
+  458  ls /run/user/1000/containers/auth.json 
+  459  cat /run/user/1000/containers/auth.json 
+  460  podman logout quay.io
+  461  cat /run/user/1000/containers/auth.json 
+  462  podman login quay.io
+  463  cat /run/user/1000/containers/auth.json 
+  464  clear
+  465  echo ${XDG_RUNTIME_DIR}
+  466  clear
+  467  oc prject
+  468  clear
+  469  oc project
+  470  oc create secret generic quay-registry --from-file .dockerconfigjson=${XDG_RUNTIME_DIR}/containers/auth.json --type=kubernetes.io/dockerconfigjson
+  471  oc get secrets 
+  472  oc create secret generic quay-creds --from-file .dockerconfigjson=${XDG_RUNTIME_DIR}/containers/auth.json --type=kubernetes.io/dockerconfigjson
+  473  oc get secrets
+  474  echo ${XDG_RUNTIME_DIR}
+  475  cat /run/user/1000/containers/auth.json 
+  476  oc create secret generic quay-creds1 --from-file .dockerconfigjson=${XDG_RUNTIME_DIR}/containers/auth.json --type=kubernetes.io/dockerconfigjson
+  477  oc get sa
+  478  oc secrets link --help
+  479  oc secrete --help
+  480  oc secret --help
+  481  oc explain secret.link
+  482  oc explain secret
+  483  oc explain secret.link
+  484  oc project
+  485  oc delete project sunil-demo
+  486  clear
+  487  oc project
+  488  clear
+  489  echo ${XDG_RUNTIME_DIR}
+  490  cat /run/user/1000/containers/auth.json 
+  491  clear
+  492  oc new-project testing
+  493  oc get sa
+  494  oc get secrets 
+  495  clear
+  496  podman images
+  497  podman rmi -a -f
+  498  clear
+  499  podman images
+  500  podman ps -a
+  501  podman ps
+  502  podman run -d --name=web1 -p 8080:8080 quay.io/sunilkumar25/my-custom-httpd
+  503  podman pull quay.io/sunilkumar25/my-custom-httpd
+  504  podman login
+  505  clear
+  506  podman login quay.io
+  507  podman pull quay.io/sunilkumar25/my-custom-httpd
+  508  podman pull quay.io/sunilkumar25/my-custom-httpd:1.0
+  509  podman pull quay.io/sunilkumar25/my-custom-httpd:v1.0
+  510  podman run -d --name=web1 -p 8080:8080 quay.io/sunilkumar25/my-custom-httpd:v1.0
+  511  podman ps
+  512  curl localhost:8080
+  513  podman exec -it web1 /bin/bash
+  514  podman ps -a
+  515  podman rm web1 -f
+  516  podman ps
+  517  podman images
+  518  clear
+  519  oc project
+  520  podman login quay.io
+  521  oc get secrets 
+  522  echo ${XDG_RUNTIME_DIR}
+  523  oc create secret generic quay-registry --from-file .dockerconfigjson=${XDG_RUNTIME_DIR}/containers/auth.json --type=kubernetes.io/dockerconfigjson
+  524  oc get sa
+  525  oc secret link builder quay-registry
+  526  clear
+  527  podman search httpd --limit 3
+  528  oc get is
+  529  oc import-image --help
+  530  #oc import-image --confirm  --insecure
+  531  oc import-image myhttpd --from=quay.io/centos7/httpd-24-centos7 --confirm --insecure
+  532  oc get is
+  533  oc new-app --name=test1 -i myhttpd
+  534  oc get pod
+  535  oc get svc
+  536  oc get route
+  537  oc expose svc test1
+  538  oc get route
+  539  curl test1-testing.apps.ap46a.prod.ole.redhat.com
+  540  clear
+  541  podman image
+  542  podman images
+  543  podman rmi 
+  544  podman rmi -a -f
+  545  clear
+  546  oc project 
+  547  oc project testing
+  548  clear
+  549  oc get project
+  550  clear
+  551  podman search httpd --limit 3
+  552  podman pull quay.io/centos7/httpd-24-centos7
+  553  podman commit --help
+  554  podman images
+  555  podman run -it --name=web1 774ce9721cf8
+  556  clear
+  557  podman rm -a -f
+  558  clear
+  559  podman run -it --name=web1 774ce9721cf8 /bin/bash
+  560  podman ps
+  561  podman commit web1 
+  562  podman images
+  563  podman tag abb2cafe6ebc quay.io/sunilkumar25/myhttpd24:1.0
+  564  podman images
+  565  podman run -d --name=web2 -p 8080:8080 abb2cafe6ebc
+  566  podman ps
+  567  podman exec -it web2 /bin/bahs
+  568  podman exec -it web2 /bin/bash
+  569  podman rm -a -f
+  570  podman run -d --name=web2 -p 8080:8080 abb2cafe6ebc /bin/bahs
+  571  podman rm -a -f
+  572  podman run -d --name=web2 -p 8080:8080 abb2cafe6ebc /bin/bash
+  573  podman ps
+  574  podman rm -a -f
+  575  podman run -it --name=web2 -p 8080:8080 abb2cafe6ebc /bin/bash
+  576  podman ps
+  577  podman run -it --name=web2 -p 8080:8080 abb2cafe6ebc sleep 1000
+  578  podman rm -a -f
+  579  clear
+  580  podman images
+  581  oc project
+  582  oc get pod
+  583  oc get route
+  584  curl test1-testing.apps.ap46a.prod.ole.redhat.com
+  585  clear
+  586  oc get pod
+  587  oc get dc
+  588  oc get deploy
+  589  oc get svc
+  590  oc project
+  591  oc delete project testing
+  592  clear
+  593  lab image-operations start
+  594  podman login quay.io 
+  595  podman search official-httpd --limit 2
+  596  podman search httpd-parent --limit 3
+  597  podman run -d --name official-httpd -p 8180:80 quay.io/redhattraining/httpd-parent
+  598  podman ps
+  599  podman exec -it official-httpd /bin/bash
+  600  curl localhost:8180
+  601  curl localhost:8180/do180.html
+  602  podman stop official-httpd 
+  603  podman commit -a "SunilKumar" official-httpd do180-custom-httpd
+  604  podman images
+  605   source /usr/local/etc/ocp4.config
+  606  podman tag localhost/do180-custom-httpd quay.io/sunilkumar25/EX288-httpd:v1.0
+  607  podman tag localhost/do180-custom-httpd quay.io/sunilkumar25/ex288-httpd:v1.0
+  608  podman images
+  609  podman push quay.io/sunilkumar25/ex288-httpd:v1.0
+  610  podman pull quay.io/sunilkumar25/ex288-httpd:v1.0
+  611  podman run -d --name test-httpd -p 8280:80 quay.io/sunilkumar25/ex288-httpd:v1.0
+  612  curl localhost:8280
+  613  curl localhost:8280/ex288.html
+  614  curl localhost:8280/do288.html
+  615  curl localhost:8280/do180.html
+  616  lab image-operations finish
+  617  podman images
+  618  podman rmi -a -f
+  619  podman iamges
+  620  podman images
+  621  clear
+  622  oc project
+  623  oc new-project sunil-testing
+  624  oc import-image --help
+  625  # --confirm  --insecure
+  626  oc import-image myhttpd --from quay.io/sunilkumar25/ex288-httpd:v1.0  --confirm  --insecure
+  627  oc get is
+  628  oc create secret generic quay-registry --from .dockerconfigjson=${XDG_RUNTIME_DIR}/containers/auth.json --type=kubernetes.io/dockerconfigjson
+  629  oc create secret generic quay-registry --from-file .dockerconfigjson=${XDG_RUNTIME_DIR}/containers/auth.json --type=kubernetes.io/dockerconfigjson
+  630  #oc secrets link quay-registry 
+  631  oc get sa
+  632  oc secrets link builder  quay-registry 
+  633  oc get is
+  634  oc get pod
+  635  oc new-app --name=myweb -i myhttpd
+  636  oc new-app --name=myweb -i myhttpd:v1.0
+  637  oc get is
+  638  oc describe is myhttpd
+  639  oc new-app --name=myweb -i myhttpd:1.0
+  640  oc new-app --name=myweb quay.io/sunilkumar25/ex288-httpd:v1.0
+  641  oc get secret
+  642  oc get sa
+  643  oc secrets link default quay-registry --for pull
+  644  oc new-app --name=myweb quay.io/sunilkumar25/ex288-httpd:v1.0
+  645  oc get pod
+  646  oc new-app --name=myweb docker-image=quay.io/sunilkumar25/ex288-httpd:v1.0
+  647  oc new-app --name=myweb -i myhttpd
+  648  clear
+  649   lab image-operations finish
+  650  clear
+  651  lab image-review start
+  652  podman search nginx --limit 3
+  653  podman search nginx:1.7 --limit 3
+  654  podman search nginx:1.7 --limit 5
+  655  podman search nginx:1.7 --limit 10
+  656  skopeo inspect  quay.io/redhattraining/nginx:1.17
+  657  skopeo inspect  quay.io/redhattraining/nginx
+  658  podman images
+  659  clear
+  660  podman images
+  661  podman ps -a
+  662  clear
+  663  podman pull quay.io/redhattraining/nginx:1.17
+  664  podman images
+  665  podman run --name official-nginx -d -p 8080:80 quay.io/redhattraining/nginx:1.17
+  666  podman ps
+  667  podman exec -it official-nginx /bin/bash
+  668  curl localhost:8080
+  669  curl 127.0.0.0:8080
+  670  cur 127.0.0.1:8080
+  671  curl 127.0.0.1:8080
+  672  clear
+  673  podman ps
+  674  podman stop official-nginx
+  675  podman commit -a "sunilkumar" official-nginx do180/mynginx:1.0
+  676  podman images
+  677  podman run --name=official-nginx-dev -d -p 8080:80 do180/mynginx:1.0
+  678  podman exec -it official-nginx-dev /bin/bash
+  679  curl localhost:8080
+  680  podman stop official-nginx-dev
+  681  podman commit -a "Sunil Kumar" official-nginx-dev do180/nginx:1.0
+  682  podman images
+  683  podman rmi localhost/do180/mynginx 
+  684  podman rm localhost/do180/mynginx 
+  685  podman rm localhost/do180/mynginx -f
+  686  podman ps -a
+  687  podman rm official-nginx-dev
+  688  podman ps -a
+  689  podman images
+  690  podman rmi localhost/do180/mynginx:1.0
+  691  podman images
+  692  podman run -d --name=my-nginx -p 8082:80 do180/nginx:1.0
+  693  curl localhost:1.0
+  694  curl localhost:8082
+  695  lab image-review finish
+  696  cd
+  697  cat Token 
+  698  lab dockerfile-create start
+  699  vim /home/student/DO180/labs/dockerfile-create/Containerfile
+  700  cd /home/student/DO180/labs/dockerfile-create/
+  701  podman build --layers=false -t do180/apache .
+  702  podman images
+  703  podman run --name lab-apache -d -p 10080:80 do180/apache
+  704  podman ps
+  705  curl localhost:10080
+  706  cd
+  707  lab dockerfile-create finish 
+  708  podman images
+  709  clear
+  710  podman search ubi8 --limit 5
+  711  podman search ubi:8.3
+  712  podman search ubi:8.3 --limit 5
+  713  lab dockerfile-review start
+  714   lab s2i-scripts start
+  715  podman run --name test -it rhscl/httpd-24-rhel7 bash
+  716  cd DO288-apps/
+  717  git checkout main
+  718  cat /home/student/DO288-apps/s2i-scripts/index.html 
+  719  cat  /home/student/DO288-apps/s2i-scripts/.s2i/bin/assemble 
+  720  cat  /home/student/DO288-apps/s2i-scripts/.s2i/bin/run 
+  721  source /usr/local/etc/ocp4.config
+  722  oc login -u ${RHT_OCP4_DEV_USER} -p ${RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+  723  oc new-project ${RHT_OCP4_DEV_USER}-s2i-scripts
+  724  oc new-app --name bonjour httpd:2.4~https://github.com/${RHT_OCP4_GITHUB_USER}/DO288-apps --context-dir s2i-scripts
+  725  oc get bc
+  726  oc logs -f bc/bonjour
+  727  oc get pod
+  728  oc get svc
+  729  oc get route
+  730  oc expose svc bonjour 
+  731  oc get route
+  732  curl bonjour-wppcqn-s2i-scripts.apps.ap46a.prod.ole.redhat.com
+  733  curl bonjour-wppcqn-s2i-scripts.apps.ap46a.prod.ole.redhat.com/info.html
+  734   oc logs deployment/bonjour
+  735  cd
+  736   oc delete project ${RHT_OCP4_DEV_USER}-s2i-scripts
+  737  podman rm test
+  738  lab s2i-scripts finish
+  739  clear
+  740  lab s2i-scripts start
+  741  podman run --name --test -it rhscl/httpd-24-rhel7 bash
+  742  podman run --name test -it rhscl/httpd-24-rhel7 bash
+  743  cd DO288-apps/
+  744  git checkout main
+  745  cat /home/student/DO288-apps/s2i-scripts/index.html
+  746   source /usr/local/etc/ocp4.config
+  747  oc login -u ${RHT_OCP4_DEV_USER} -p ${RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+  748  oc new-project ${RHT_OCP4_DEV_USER}-s2i-scripts
+  749  oc new-app --name bonjour httpd:2.4~https://github.com/${RHT_OCP4_GITHUB_USER}/DO288-apps --context-dir s2i-scripts
+  750  oc get bc
+  751  oc logs -f bc/bonjour
+  752  oc get pod
+  753  oc expose svc bonjour
+  754  oc get route
+  755  curl bonjour-wppcqn-s2i-scripts.apps.ap46a.prod.ole.redhat.com
+  756  curl bonjour-wppcqn-s2i-scripts.apps.ap46a.prod.ole.redhat.com/info.html
+  757  oc logs deployment/bonjour
+  758  cd
+  759   oc delete project ${RHT_OCP4_DEV_USER}-s2i-scripts
+  760  podman rm test
+  761  lab s2i-scripts finish
+  762  lab apache-s2i start
+  763  s2i version
+  764  s2i create s2i-do288-httpd s2i-do288-httpd
+  765  ls -l
+  766  lab apache-s2i finish
+  767  clear
+  768  ls -l
+  769  rm -rf s2i-demo-httpd/
+  770  rm -rf s2i-do288-httpd/
+  771  rm -rf s2i-sample-app/
+  772  clear
+  773  ls -l
+  774  cat history_s2i 
+  775  clear
+  776  ls -l
+  777  lab apache-s2i start
+  778  s2i version
+  779  s2i create s2i-do288-httpd s2i-do288-httpd
+  780  tree s2i-do288-httpd/
+  781  cat ~/DO288/labs/apache-s2i/Containerfile
+  782  #cat ~/DO288/labs/apache-s2i/Containerfile
+  783  rm ~/s2i-do288-httpd/Dockerfile
+  784  cp ~/DO288/labs/apache-s2i/Containerfile  ~/s2i-do288-httpd/
+  785  ls -l
+  786  cat Templates/
+  787  tree Templates/
+  788  clear
+  789  ls -l s2i-do288-httpd/
+  790  ls -l s2i-do288-httpd/s2i/
+  791  ls -l s2i-do288-httpd/s2i/bin/
+  792  cp -Rv ~/DO288/labs/apache-s2i/s2i ~/s2i-do288-httpd/
+  793  ls -l s2i-do288-httpd/s2i/bin/
+  794  rm -f ~/s2i-do288-httpd/s2i/bin/save-artifacts
+  795  cd s2i-do288-httpd/
+  796  ls -l
+  797  podman build -t s2i-do288-httpd .
+  798  podman images
+  799  cat ~/DO288/labs/apache-s2i/index.html
+  800  cp ~/DO288/labs/apache-s2i/index.html  ~/s2i-do288-httpd/test/test-app/
+  801  mkdir ~/s2i-sample-app
+  802  l s-l
+  803  clar
+  804  clear
+  805  ls -l
+  806  s2i build test/test-app/ s2i-do288-httpd s2i-sample-app --as-dockerfile ~/s2i-sample-app/Containerfile
+  807  cd ~/s2i-sample-app/
+  808  tree .
+  809  cat upload/src/index.html 
+  810  cat Containerfile 
+  811  podman build -t s2i-sample-app .
+  812  podman images
+  813  podman run --name test -u 1234 -p 8080:8080 -d s2i-sample-app
+  814  podman ps
+  815  curl localhost:8080
+  816  podman stop test
+  817   source /usr/local/etc/ocp4.config
+  818  podman login quay.io
+  819  podman images
+  820  skopeo copy containers-storage:localhost/s2i-do288-httpd  docker://quay.io/sunilkumar25/s2i-do288-httpd
+  821  oc login -u ${RHT_OCP4_DEV_USER} -p ${RHT_OCP4_DEV_PASSWORD} ${RHT_OCP4_MASTER_API}
+  822  oc new-project ${RHT_OCP4_DEV_USER}-apache-s2i
+  823  oc project
+  824  oc get secret
+  825  echo ${XDG_RUNTIME_DIR}
+  826  oc create secret generic quayio --from-file .dockerconfigjson=${XDG_RUNTIME_DIR}/containers/auth.json --type=kubernetes.io/dockerconfigjson
+  827  oc secrets link builder quayio
+  828  #oc import-image s2i-do288-httpd --from quay.io/sunilkumar25/s2i-do288-httpd --confirm
+  829  oc get is
+  830  oc import-image s2i-do288-httpd --from quay.io/sunilkumar25/s2i-do288-httpd --confirm
+  831  oc get is
+  832   oc new-app --name hello-s2i s2i-do288-httpd~https://github.com/${RHT_OCP4_GITHUB_USER}/DO288-apps --context-dir=html-helloworld
+  833  oc get is
+  834  oc delete is s2i-do288-httpd
+  835  # skopeo copy --dest-creds= containers-storage:localhost/s2i-do288-httpd  docker://default-route-openshift-image-registry.apps.ap46a.prod.ole.redhat.com/wppcqn-apache-s2i/s2i-do288-httpd
+  836  oc whoami  
+  837  oc whoami  -t 
+  838  TOKEN=$(oc whoami  -t) 
+  839  skopeo copy --dest-creds=wppcqn:${TOKEN} containers-storage:localhost/s2i-do288-httpd  docker://default-route-openshift-image-registry.apps.ap46a.prod.ole.redhat.com/wppcqn-apache-s2i/s2i-do288-httpd
+  840  oc get is 
+  841  oc describe is 
+  842   oc new-app --name hello-s2i s2i-do288-httpd~https://github.com/${RHT_OCP4_GITHUB_USER}/DO288-apps --context-dir=html-helloworld
+  843  oc logs -f buildconfig/hello-s2i
+  844  oc get pods 
+  845  oc get svc 
+  846  oc get route 
+  847  oc expose svc/hello-s2i
+  848  oc get route 
+  849  curl hello-s2i-wppcqn-apache-s2i.apps.ap46a.prod.ole.redhat.com
+  850  cd
+  851  lab apache-s2i finish
+  852  history 
+  853  history >history_14-April
