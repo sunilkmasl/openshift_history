@@ -11,8 +11,7 @@
    31  pwd
    32  lab configure
    33  lab-configure
-   34  cat /usr/local/etc/ocp4.config 
-   35  oc login -u wppcqn -p bb5184d5d507477ea31f https://api.ap46a.prod.ole.redhat.com:6443
+   34  cat /usr/local/etc/ocp4.config
    36  oc whoami
    37  lab s2i-scripts start
    38  cd DO180-apps/
